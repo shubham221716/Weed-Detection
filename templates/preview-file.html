@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:ital,wght@0,400;0,500;1,100&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Preview File</title>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/upload_file"><img class="back-button" src="static/ic_baseline-arrow-back-ios.png"></a>
+        <a href="/"><img class="back-button-home" src="static/ic_baseline-home.png"></a>
+    </nav>
+    <div class="container-preview-page">
+        <div class="preview-container">
+            <p class="text-preview">Preview of upladed img file</p>
+            <img src="{{preview_img}}" class="preview-img">
+            <form action="/preview_file" method="POST">
+                <input class="btn-generate" type="submit" name="submit" value="Detect">
+            </form>
+        </div>
+        <div>
+            <div class="result-container">
+                <p class="text-result-heading">Results:</p>
+                {%if result_txt %}
+                <p class="text-result">{{result_txt}}</p>
+                {% if soulution_url %}
+                <a href="{{soulution_url}}">know more..</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
+<!-- <form class="preview-form" action="/preview_file" method="post" enctype="multipart/form-data">
+    <p class="text-preview">Preview of upladed img file</p>
+    <img src="{{preview_img}}" style="height: 500px; width: 500px;">
+    <div class="preview-form-btn-group">
+            <a class="btn-return" href="/upload_file">return</a>
+            <input class="btn-generate" type="submit" name="submit" value="Generate">
+    </div>
+    {%if result_txt %}
+    <p class="text-result">Summary of txt file</p>
+    <textarea name="file_result" class="result" rows="15" readonly>{{result_txt}}</textarea>
+    {% endif %}
+    
+</form> -->
